@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/', 'pages/home');
+
+Route::prefix('article')->group(function () {
+    Route::get('/', 'ArticleController@index');
 });
