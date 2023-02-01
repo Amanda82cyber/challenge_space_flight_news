@@ -42,7 +42,12 @@
 </body>
 
 <script src="{!! asset('js/app.js') !!}"></script>
-<script src="{!! asset('js/general.js') !!}"></script>
+
+<script>
+		function loading() {
+				$('.box-loader').css('display', 'none');
+		}
+</script>
 
 @stack('js')
 

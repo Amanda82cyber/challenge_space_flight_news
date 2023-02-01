@@ -2,7 +2,7 @@
 @section('title', 'Home')
 
 @section('content')
-		<div class="card w-50 mx-auto mt-4 border border-info">
+		<div class="card w-md-50 mx-3 mx-md-auto my-4 border border-info">
 				<div class="card-body">
 						<h3 class="card-title">
 								Back-end Challenge 2021

@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'pages/home');
 
-Route::prefix('article')->group(function () {
-    Route::get('/', 'ArticleController@index');
+Route::prefix('articles')->group(function () {
+	Route::get('/', 'ArticleController@index');
+	Route::get('/{id}', 'ArticleController@details');
+	Route::view('/form', 'pages/form-article');
 });

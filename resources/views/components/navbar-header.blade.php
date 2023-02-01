@@ -13,13 +13,18 @@
 				<div class="collapse navbar-collapse" id="navbarHeaderNav">
 						<ul class="navbar-nav">
 								<li class="nav-item">
-										<a class="nav-link {{ Request::segment(1) == 'article' ? '' : 'active' }}" href="/">
+										<a class="nav-link {{ Request::segment(1) == '' ? 'active' : '' }}" href="/">
 												<i class="fas fa-home"></i> Home
 										</a>
 								</li>
 								<li class="nav-item">
-										<a class="nav-link {{ Request::segment(1) == 'article' ? 'active' : '' }}" href="/article">
+										<a class="nav-link {{ Request::segment(1) == 'articles' ? 'active' : '' }}" href="/articles">
 												<i class="fas fa-file-alt"></i> Articles
+										</a>
+								</li>
+								<li class="nav-item">
+										<a class="nav-link {{ Request::segment(2) == '/form' ? 'active' : '' }}" href="/articles/form">
+												<i class="fas fa-plus"></i> New Article
 										</a>
 								</li>
 						</ul>

@@ -71,7 +71,32 @@ body {
 
 .div-pagination .pagination {
   justify-content: center !important;
-  .page-item a {
-    color: #0dcaf0;
+  .page-item {
+    a {
+      color: #0dcaf0;
+    }
+
+    &.active .page-link {
+      background-color: #0dcaf0 !important;
+      border-color: #0dcaf0 !important;
+    }
   }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .w-md-50 {
+    width: 50%;
+  }
+  .w-md-75 {
+    width: 75%;
+  }
+}
+
+.asteriskRed::after {
+  content: " *";
+  color: red;
 }
