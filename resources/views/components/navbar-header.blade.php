@@ -18,13 +18,14 @@
 										</a>
 								</li>
 								<li class="nav-item">
-										<a class="nav-link {{ Request::segment(1) == 'articles' ? 'active' : '' }}" href="/articles">
+										<a class="nav-link {{ Request::segment(1) == 'articles' && Request::segment(2) == '' ? 'active' : '' }}"
+												href="/articles">
 												<i class="fas fa-file-alt"></i> Articles
 										</a>
 								</li>
 								<li class="nav-item">
-										<a class="nav-link {{ Request::segment(2) == '/form' ? 'active' : '' }}" href="/articles/form">
-												<i class="fas fa-plus"></i> New Article
+										<a class="nav-link {{ Request::segment(2) == 'form' ? 'active' : '' }}" href="/articles/form">
+												<i class="fas fa-file-medical"></i> New Article
 										</a>
 								</li>
 						</ul>

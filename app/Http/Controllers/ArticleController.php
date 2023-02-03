@@ -22,10 +22,40 @@ class ArticleController extends Controller
 	{
 		$article = ArticleModel::find($id);
 
-		return view('pages.default')->with([
-			'title' => 'Article',
-			'contents' => $article,
-			'component' => $request->get('flg') == 'view' ? 'components.article' : 'pages.form-article',
-		]);
+		if ($request->get('flg') == 'view') {
+			return view('pages.default')->with([
+				'title' => 'Article',
+				'contents' => $article,
+				'component' => 'components.article',
+			]);
+		} else {
+			return view('pages.form-article')->with('article', $article);
+		}
+	}
+
+	public function save(Request $request, $id)
+	{
+		if (!empty($id)) {
+			$article = ArticleModel::find($id);
+			$request['updatedAt'] = now();
+		} else {
+			$article = new ArticleModel();
+		}
+
+		if (!$request->get('featured')) {
+			$request['featured'] = 0;
+		}
+
+		$article->fill($request->all())->save();
+
+		return;
+	}
+
+	public function delete($id)
+	{
+		$article = ArticleModel::find($id);
+		$article->fill(['deleted_at' => now()])->save();
+
+		return response('Article deleted successfully!', 200);
 	}
 }

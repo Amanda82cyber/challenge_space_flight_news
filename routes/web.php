@@ -19,4 +19,7 @@ Route::prefix('articles')->group(function () {
 	Route::get('/', 'ArticleController@index');
 	Route::get('/{id}', 'ArticleController@details');
 	Route::view('/form', 'pages/form-article');
+	Route::post('/', 'ArticleController@save');
+	Route::put('/{id}', 'ArticleController@save');
+	Route::delete('/{id}', 'ArticleController@delete');
 });

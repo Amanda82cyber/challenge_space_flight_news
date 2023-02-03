@@ -11,13 +11,17 @@
 						{{ $contents->newsSite }} - {{ $contents->formatted_published_at }}
 				</h6>
 				<div class="card-text">
-						<p>{{ $contents->summary }}</p>
-						<p class="text-muted">
-								<span class="fw-bold">Atualizado:</span> {{ $contents->formatted_updated }}
-						</p>
+						@if ($contents->summary)
+								<p>{{ $contents->summary }}</p>
+						@endif
+						@if ($contents->formatted_updated)
+								<p class="text-muted">
+										<span class="fw-bold">Updated:</span> {{ $contents->formatted_updated }}
+								</p>
+						@endif
 						<p class="m-0">
 								<a href="{{ $contents->url }}" class="link-info fw-bold" target="_blank">
-										Matéria Completa <i class="fas fa-external-link"></i>
+										Full Article <i class="fas fa-external-link"></i>
 								</a>
 						</p>
 				</div>

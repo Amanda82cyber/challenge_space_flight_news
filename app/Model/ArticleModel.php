@@ -35,4 +35,9 @@ class ArticleModel extends Model
 	{
 		return empty($this->attributes['updatedAt']) ? '' : Carbon::parse($this->attributes['updatedAt'])->format('d/m/Y H:i');
 	}
+
+	public function getPublishedAtAttribute($val)
+	{
+		return empty($val) ? '' : Carbon::parse($val)->toDateTimeLocalString();
+	}
 }
