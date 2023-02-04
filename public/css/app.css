@@ -21195,3 +21195,13 @@ body {
   content: " *";
   color: red;
 }
+
+.h-120 {
+  height: 120% !important;
+}
+
+@media (max-width: 768px) {
+  .navbar-footer {
+    display: none;
+  }
+}

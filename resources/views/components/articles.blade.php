@@ -1,4 +1,4 @@
-<div class="px-5 py-4">
+<div class="px-md-5 px-3 py-4">
 		<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
 				@foreach ($contents as $content)
 						<div class="col" id="card_{{ $content->id }}">

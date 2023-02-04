@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'pages/home');
+Route::get('/testCron', 'ArticleController@testCronNewArticles');
 
 Route::prefix('articles')->group(function () {
 	Route::get('/', 'ArticleController@index');

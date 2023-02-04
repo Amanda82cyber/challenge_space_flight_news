@@ -29,14 +29,14 @@
 				@include('components.navbar-header')
 		</div>
 
-		<div class="container-fluid p-0">
+		<div class="container-fluid p-0 h-120">
 				{{-- Loading --}}
 				<div class="box-loader"><span class="loader"></span></div>
 
 				@yield('content')
 		</div>
 
-		<div class="container-fluid p-0">
+		<div class="container-fluid p-0 navbar-footer">
 				@include('components.navbar-footer')
 		</div>
 </body>

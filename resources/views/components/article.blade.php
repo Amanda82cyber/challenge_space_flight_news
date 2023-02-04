@@ -1,4 +1,4 @@
-<div class="card w-md-50 mx-3 mx-md-auto my-4 border border-info">
+<div class="card w-md-50 mx-3 mx-md-auto mt-4 border border-info">
 		<img src="{{ $contents->imageUrl }}" class="card-img-top" alt="article-{{ $contents->id }}">
 		<div class="card-body">
 				<h3 class="card-title">

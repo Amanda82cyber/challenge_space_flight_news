@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Model\ArticleModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class ArticleController extends Controller
 {
@@ -71,5 +73,35 @@ class ArticleController extends Controller
 		}
 
 		return response('Article deleted successfully!', 200);
+	}
+
+	public function testCronNewArticles()
+	{
+		$articles = Http::get('https://api.spaceflightnewsapi.net/v3/articles');
+		$newArticles = $articles->json();
+		$insertArticle = [];
+
+		foreach ($newArticles as $new) {
+			$alreadyArticle = ArticleModel::where('api_id', $new['id'])->first();
+
+			if (!$alreadyArticle) {
+				DB::table('article')->insert([
+					'api_id' => $new['id'],
+					'title' => $new['title'],
+					'url' => $new['url'],
+					'imageUrl' => $new['imageUrl'],
+					'newsSite' => $new['newsSite'],
+					'summary' => $new['summary'],
+					'publishedAt' => $new['publishedAt'],
+					'updatedAt' => $new['updatedAt'],
+					'featured' => $new['featured'],
+					'created_at' => now(),
+				]);
+
+				$insertArticle[] = $new;
+			}
+		}
+
+		return ($insertArticle ? $insertArticle : 'Não há novos artigos!');
 	}
 }
