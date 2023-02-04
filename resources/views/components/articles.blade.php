@@ -1,7 +1,7 @@
 <div class="px-5 py-4">
 		<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
 				@foreach ($contents as $content)
-						<div class="col">
+						<div class="col" id="card_{{ $content->id }}">
 								<div class="card h-100 border border-info">
 										<img src="{{ $content->imageUrl }}" class="card-img-top" alt="article-{{ $content->id }}">
 										<div class="card-body">
@@ -72,9 +72,18 @@
 										$.ajax({
 												url: '/articles/' + id,
 												method: 'delete',
-												success: function(response, textStatus, xhr) {
+												success: function(response) {
+														$(`#card_${id}`).remove();
 														Swal.fire({
 																icon: 'success',
+																title: response,
+																showConfirmButton: false,
+																timer: 1500
+														});
+												},
+												error: function(response) {
+														Swal.fire({
+																icon: 'error',
 																title: response,
 																showConfirmButton: false,
 																timer: 1500

@@ -23,6 +23,10 @@ class ArticleController extends Controller
 		$article = ArticleModel::find($id);
 
 		if ($request->get('flg') == 'view') {
+			if (!$article) {
+				return response('There is no article with this id!', 412);
+			}
+
 			return view('pages.default')->with([
 				'title' => 'Article',
 				'contents' => $article,
@@ -33,10 +37,15 @@ class ArticleController extends Controller
 		}
 	}
 
-	public function save(Request $request, $id)
+	public function save(Request $request, $id = null)
 	{
 		if (!empty($id)) {
 			$article = ArticleModel::find($id);
+
+			if (!$article) {
+				return response('There is no article with this id!', 412);
+			}
+
 			$request['updatedAt'] = now();
 		} else {
 			$article = new ArticleModel();
@@ -48,13 +57,18 @@ class ArticleController extends Controller
 
 		$article->fill($request->all())->save();
 
-		return;
+		return response('Article saved successfully!', 200);
 	}
 
 	public function delete($id)
 	{
 		$article = ArticleModel::find($id);
-		$article->fill(['deleted_at' => now()])->save();
+
+		if ($article) {
+			$article->delete();
+		} else {
+			return response('There is no article with this id!', 412);
+		}
 
 		return response('Article deleted successfully!', 200);
 	}

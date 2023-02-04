@@ -1,4 +1,4 @@
-<nav class="navbar bg-light border-top border-info">
+<nav class="navbar fixed-bottom bg-light border-top border-info">
 		<div class="container-fluid">
 				<div class="row w-100 text-center gap-3 gap-md-0">
 						<div class="col-12 col-md-4">

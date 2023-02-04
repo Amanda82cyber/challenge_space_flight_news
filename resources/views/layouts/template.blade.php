@@ -36,8 +36,8 @@
 				@yield('content')
 		</div>
 
-		<div class="container-fluid p-0 navbar-footer">
-				{{-- @include('components.navbar-footer') --}}
+		<div class="container-fluid p-0">
+				@include('components.navbar-footer')
 		</div>
 </body>
 
@@ -47,6 +47,14 @@
 		function loading() {
 				$('.box-loader').css('display', 'none');
 		}
+</script>
+
+<script>
+		$.ajaxSetup({
+				headers: {
+						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+		});
 </script>
 
 @stack('js')

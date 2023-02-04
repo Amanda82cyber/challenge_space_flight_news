@@ -21117,6 +21117,7 @@ readers do not read off random characters that represent icons */
 body {
   font-family: "solitreo";
   font-size: 15px;
+  height: 100vh;
 }
 
 .box-loader {
@@ -21164,11 +21165,9 @@ body {
   font-weight: bold;
 }
 
-.navbar-footer {
-  position: absolute;
-  bottom: 0;
+.div-pagination {
+  margin-bottom: 80px;
 }
-
 .div-pagination .pagination {
   justify-content: center !important;
 }

@@ -18,7 +18,7 @@ class PopulateArticleTable extends Migration
 
 		foreach ($articlesJson as $article) {
 			DB::table('article')->insert([
-				'id' => $article['id'],
+				'api_id' => $article['id'],
 				'title' => $article['title'],
 				'url' => $article['url'],
 				'imageUrl' => $article['imageUrl'],

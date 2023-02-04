@@ -15,6 +15,7 @@ class CreateArticleTable extends Migration
 	{
 		Schema::create('article', function (Blueprint $table) {
 			$table->id();
+			$table->unsignedInteger('api_id')->nullable();
 			$table->string('title', 400)->nullable();
 			$table->string('url', 400)->nullable();
 			$table->string('imageUrl', 400)->nullable();

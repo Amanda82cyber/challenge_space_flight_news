@@ -10,7 +10,6 @@
 						</h3>
 						<div class="card-text">
 								<form class="row" name="formArticle" onsubmit="submitForm(event, {{ $article->id ?? '' }})">
-										@csrf
 										<div class="col-12 mb-2">
 												<label for="title" class="form-label mb-0 ms-1 asteriskRed">
 														Title
@@ -72,7 +71,7 @@
 
 @push('js')
 		<script>
-				function submitForm(event, id) {
+				function submitForm(event, id = '') {
 						event.preventDefault();
 
 						var form = event.target.name;
@@ -81,15 +80,23 @@
 								url: '/articles/' + id,
 								method: id == '' ? 'post' : 'put',
 								data: $(`form[name='${form}']`).serialize(),
-								success: function() {
+								success: function(response) {
 										$(`form[name='${form}'] input, form[name='${form}'] textarea`).val('');
 										Swal.fire({
 												icon: 'success',
-												title: 'Article saved successfully!',
+												title: response,
 												showConfirmButton: false,
 												timer: 1500
 										})
 								},
+								error: function(response) {
+										Swal.fire({
+												icon: 'error',
+												title: response,
+												showConfirmButton: false,
+												timer: 1500
+										});
+								}
 						})
 				}
 		</script>
