@@ -64,12 +64,30 @@ Verifique se já possui o git instalado em sua máquina com o comando *git --ver
 No terminal ou no prompt de comando já aberto, configure seu usuário com o login do github ou similares. Para fazer isso é só usar o comando `git config --global user.name "Nome"` e o comando `git config --global user.email "exemplo@seuemail.com.br"`.
 Após fazer os passos acima, clone esse repositório com o comando `git clone https://github.com/Amanda82cyber/challenge_space_flight_news.git`.
 
-### Instalar as depêndencias do Composer e do npm
+### 2. Instalar as depêndencias do Composer e do npm
 Caso não tenha o Composer instalado em sua máquina, [clique aqui](https://getcomposer.org/download/) e siga o processo de download. Se também não tiver o gerenciador de pacotes do node instalado, [clique aqui](https://kinsta.com/pt/blog/como-instalar-o-node-js/) e veja como fazer isso.
 
 Com o Composer e o npm instalados, abra seu terminal ou prompt de comando e vá até a pasta deste projeto que acabou de ser clonada. Execute os seguintes comandos para instalar as depêndencias necessárias: `composer install` e `npm i`.
 
 Após realizar o feito acima, inicialize o projeto com `php artisan serve` e clique no link gerado para acessar.
 
-### Configurando o banco local
-Como não consegui criar um banco de dados MySQL no Heroku, como pedia no desafio, ensinarei como configurar o banco de dados local.
+### 3. Configurando o banco local
+Como não consegui criar um banco de dados MySQL no Heroku, igual pedia no desafio, ensinarei como configurar o banco de dados local. 
+
+Primeiramente, iremos baixar o [MariaDB Server](https://mariadb.org/download/).
+
+Após a instalação do software, siga os passos [deste vídeo](https://youtu.be/oBjs4Odl-BE) para condigurá-lo caso seja um usuário de Windows. Se for um usuário Linux, siga [este vídeo](https://youtu.be/1pOdUcnSHcU).
+
+Em ambas plataformas, foi necessário criar uma senha para o usuário *root* (no Linux, este nome também pode ser alterado) e também foi feito uma conexão local para teste (a conexão com o hostname 127.0.0.1). Para gerar nosso banco de dados, use esta conexão de hostname 127.0.0.1, na porta 3306, com o usuário root (ou qualquer outro nome que o tenha dado) e a senha definida.
+
+Com a conexão feita, crie um novo banco de dados e o dê o nome de *challenge_space_flight_news*. Agora, volte ao ambiente em que clonou esse repositório e edite o arquivo *.env.example* nas linhas 15 e 16, colocando o seu usuário e sua senha definidas anteriormente. Depois disso, renomeie esse arquivo para somente *.env*.
+
+Tendo feito tudo acima, rode o comando `php artisan migrate`.
+
+## Como Usar o Projeto
+...um link de uma apresentação será anexado aqui posteriormente.
+
+## Contato
+`LinkedIn` https://www.linkedin.com/in/amanda-moreira-8131381a2
+
+`E-mail` nandamoreira945@gmail.com
