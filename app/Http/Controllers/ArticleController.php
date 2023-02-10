@@ -82,7 +82,7 @@ class ArticleController extends Controller
 		$insertArticle = [];
 
 		foreach ($newArticles as $new) {
-			$alreadyArticle = ArticleModel::where('api_id', $new['id'])->first();
+			$alreadyArticle = ArticleModel::where('api_id', $new['id'])->withTrashed()->first();
 
 			if (!$alreadyArticle) {
 				DB::table('article')->insert([
