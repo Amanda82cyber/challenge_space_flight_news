@@ -85,7 +85,7 @@ Com a conexão feita, crie um novo banco de dados e o dê o nome de *challenge_s
 Tendo feito tudo acima, rode o comando `php artisan migrate`.
 
 ## Como Usar o Projeto
-...um link de uma apresentação será anexado aqui posteriormente.
+Apresentação: https://www.loom.com/share/abca3dab88eb42c2828c6b059428009b
 
 ## Contato
 `LinkedIn` https://www.linkedin.com/in/amanda-moreira-8131381a2
